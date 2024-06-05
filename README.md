@@ -1,4 +1,4 @@
-# Content Management Application
+# Report Generator Application
 
 ## Technologies Used
 
