@@ -1,0 +1,189 @@
+{
+	"info": {
+		"_postman_id": "49d58984-19e4-4867-b143-3c1636bde89b",
+		"name": "report-management-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23442702"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/users/age-over/30",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/age-over/30",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"age-over",
+						"30"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/users/names/articles-over-3",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/names/articles-over-3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"names",
+						"articles-over-3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/articles/color/WHITE",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/articles/color/WHITE",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"articles",
+						"color",
+						"WHITE"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/users/save",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"lora\",\r\n    \"age\": 88\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/articles/save",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"text\": \"aloha\",\r\n    \"color\": \"WHITE\",\r\n    \"userId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/articles/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"articles",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/auth/signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"exampleUsername\",\r\n  \"password\": \"examplePassword\",\r\n  \"role\": [\"ROLE_USER\"]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/auth/signin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"exampleUsername\",\r\n  \"password\": \"examplePassword\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/signin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
