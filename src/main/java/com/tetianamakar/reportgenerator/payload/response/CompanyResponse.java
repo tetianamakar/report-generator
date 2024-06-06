@@ -1,6 +1,7 @@
 package com.tetianamakar.reportgenerator.payload.response;
 
-import com.tetianamakar.reportgenerator.entity.Company;
+import java.sql.Timestamp;
+import java.util.UUID;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,7 +9,7 @@ import lombok.Setter;
 @Setter
 public class CompanyResponse {
 
-    private String id;
+    private UUID id;
 
     private String name;
 
@@ -16,13 +17,6 @@ public class CompanyResponse {
 
     private String address;
 
-    private String createdAt;
+    private Timestamp createdAt;
 
-    public CompanyResponse(Company company) {
-        this.id = company.getId().toString();
-        this.name = company.getName();
-        this.registrationNumber = company.getRegistrationNumber();
-        this.address = company.getAddress();
-        this.createdAt = company.getCreatedAt().toString();
-    }
 }

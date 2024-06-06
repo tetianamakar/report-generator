@@ -36,7 +36,16 @@ public class CompanyService {
         repository.deleteById(UUID.fromString(id));
     }
 
-    public void updateCompany(String id) {
-        repository.updateNameById(id);
+    public void updateCompany(UUID id, CompanyRequest request) {
+        Company company = getCompanyById(id);
+        company.setName(request.getName());
+        company.setAddress(request.getAddress());
+        company.setRegistrationNumber(request.getRegistrationNumber());
+        repository.save(company);
+    }
+
+    public Company getCompanyById(UUID id) {
+        return repository.findById(id)
+            .orElseThrow(() -> new RuntimeException("Entity with id " + id + " does not exist"));
     }
 }

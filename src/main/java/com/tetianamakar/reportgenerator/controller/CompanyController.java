@@ -3,10 +3,9 @@ package com.tetianamakar.reportgenerator.controller;
 import com.tetianamakar.reportgenerator.payload.request.CompanyRequest;
 import com.tetianamakar.reportgenerator.payload.response.CompanyResponse;
 import com.tetianamakar.reportgenerator.service.CompanyService;
-import org.springframework.web.bind.annotation.*;
-
-import java.net.CacheRequest;
 import java.util.List;
+import java.util.UUID;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/companies")
@@ -34,7 +33,7 @@ public class CompanyController {
     }
 
     @PutMapping("/update/{id}")
-    public void updateCompany(@PathVariable String id) {
-        companyService.updateCompany(id);
+    public void updateCompany(@PathVariable UUID id, @RequestBody CompanyRequest request) {
+        companyService.updateCompany(id, request);
     }
 }
