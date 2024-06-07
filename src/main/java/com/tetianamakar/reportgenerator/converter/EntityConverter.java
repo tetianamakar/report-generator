@@ -2,11 +2,12 @@ package com.tetianamakar.reportgenerator.converter;
 
 import com.tetianamakar.reportgenerator.entity.Company;
 import com.tetianamakar.reportgenerator.entity.Report;
+import com.tetianamakar.reportgenerator.entity.ReportDetails;
 import com.tetianamakar.reportgenerator.entity.User;
 import com.tetianamakar.reportgenerator.payload.response.CompanyResponse;
+import com.tetianamakar.reportgenerator.payload.response.ReportDetailsWithoutReportResponse;
 import com.tetianamakar.reportgenerator.payload.response.ReportResponse;
 import com.tetianamakar.reportgenerator.payload.response.UserResponse;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -53,4 +54,15 @@ public class EntityConverter {
         return response;
     }
 
+    public static List<ReportDetailsWithoutReportResponse> convertReportDetails(List<ReportDetails> reportDetails) {
+        return reportDetails.stream()
+            .map(EntityConverter::convertReportDetailPiece)
+            .collect(Collectors.toList());
+    }
+
+    public static ReportDetailsWithoutReportResponse convertReportDetailPiece(ReportDetails reportDetails) {
+        ReportDetailsWithoutReportResponse reportDetailsWithoutReportResponse = new ReportDetailsWithoutReportResponse();
+        reportDetailsWithoutReportResponse.setComments(reportDetails.getComments());
+        return reportDetailsWithoutReportResponse;
+    }
 }

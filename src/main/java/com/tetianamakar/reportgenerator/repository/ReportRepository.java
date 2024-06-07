@@ -1,5 +1,6 @@
-package com.tetianamakar.reportgenerator.entity;
+package com.tetianamakar.reportgenerator.repository;
 
+import com.tetianamakar.reportgenerator.entity.Report;
 import java.util.List;
 import java.util.UUID;
 import org.springframework.data.jpa.repository.JpaRepository;

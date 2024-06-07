@@ -8,3 +8,17 @@ services:
       - POSTGRES_DB=companies
       - POSTGRES_USER=tetiana
       - POSTGRES_PASSWORD=password
+
+  mongodb:
+    image: mongo
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_DATABASE=reports
+      - MONGO_INITDB_USERNAME=tetiana
+      - MONGO_INITDB_PASSWORD=password
+#    volumes:
+#      - mongo_data:/data/db
+#
+#volumes:
+#  mongo_data:

@@ -3,9 +3,9 @@ package com.tetianamakar.reportgenerator.service;
 import com.tetianamakar.reportgenerator.converter.EntityConverter;
 import com.tetianamakar.reportgenerator.entity.Company;
 import com.tetianamakar.reportgenerator.entity.Report;
-import com.tetianamakar.reportgenerator.entity.ReportRepository;
 import com.tetianamakar.reportgenerator.payload.request.ReportRequest;
 import com.tetianamakar.reportgenerator.payload.response.ReportResponse;
+import com.tetianamakar.reportgenerator.repository.ReportRepository;
 import java.util.List;
 import java.util.UUID;
 import org.springframework.stereotype.Service;
@@ -38,7 +38,7 @@ public class ReportService {
     }
 
     public void updateReport(UUID reportId, ReportRequest request) {
-        Report report = reportRepository.findById(reportId).orElseThrow(() -> new RuntimeException("Report with such id does not exist"));
+        Report report = getReportById(reportId);
         report.setReportDate(request.getReportDate());
         report.setTotalRevenue(request.getTotalRevenue());
         report.setNetProfit(request.getNetProfit());
@@ -50,6 +50,11 @@ public class ReportService {
 
     public void deleteReport(UUID reportId) {
         reportRepository.deleteById(reportId);
+    }
+
+    public Report getReportById(UUID reportId) {
+        return reportRepository.findById(reportId)
+            .orElseThrow(() -> new RuntimeException("Report with such id does not exist"));
     }
 }
 
