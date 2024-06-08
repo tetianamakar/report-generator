@@ -46,6 +46,6 @@ public class CompanyService {
 
     public Company getCompanyById(UUID id) {
         return repository.findById(id)
-            .orElseThrow(() -> new RuntimeException("Entity with id " + id + " does not exist"));
+            .orElseThrow(() -> new RuntimeException("Company with id " + id + " does not exist"));
     }
 }

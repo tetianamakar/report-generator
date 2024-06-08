@@ -55,7 +55,7 @@ public class ReportDetailsService {
 
     private ReportDetails getReportDetailsByReportId(UUID reportId) {
         return reportDetailsRepository.findById(reportId)
-            .orElseThrow(() -> new RuntimeException("ReportDetails with such id does not exist"));
+            .orElseThrow(() -> new RuntimeException("Report with such id does not exist"));
     }
 
 }

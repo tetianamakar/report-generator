@@ -18,7 +18,7 @@ public class ReportController {
     }
 
     @GetMapping("/all/{companyId}")
-    public List<ReportResponse> getReports(@PathVariable String companyId) {
+    public List<ReportResponse> getReports(@PathVariable UUID companyId) {
         return reportService.getReports(companyId);
     }
 

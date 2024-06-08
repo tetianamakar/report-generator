@@ -22,8 +22,9 @@ public class ReportService {
         this.companyService = companyService;
     }
 
-    public List<ReportResponse> getReports(String id) {
-        List<Report> reports = reportRepository.findReportsByCompanyId(UUID.fromString(id));
+    public List<ReportResponse> getReports(UUID id) {
+        Company company = companyService.getCompanyById(id);
+        List<Report> reports = reportRepository.findReportsByCompanyId(company.getId());
         return EntityConverter.convertReports(reports);
     }
 
