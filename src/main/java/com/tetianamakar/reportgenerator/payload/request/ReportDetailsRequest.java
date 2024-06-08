@@ -1,15 +1,14 @@
 package com.tetianamakar.reportgenerator.payload.request;
 
-import java.util.UUID;
 import lombok.Getter;
 import lombok.Setter;
+import org.bson.Document;
 
 @Getter
 @Setter
 public class ReportDetailsRequest {
 
-    private UUID reportId;
-
     private String comments;
 
+    private Document financialData;
 }

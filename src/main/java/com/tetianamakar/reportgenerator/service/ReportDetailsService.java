@@ -1,13 +1,10 @@
 package com.tetianamakar.reportgenerator.service;
 
-import com.tetianamakar.reportgenerator.converter.EntityConverter;
 import com.tetianamakar.reportgenerator.entity.Report;
 import com.tetianamakar.reportgenerator.entity.ReportDetails;
 import com.tetianamakar.reportgenerator.payload.request.ReportDetailsRequest;
 import com.tetianamakar.reportgenerator.payload.response.ReportDetailsResponse;
-import com.tetianamakar.reportgenerator.payload.response.ReportDetailsWithoutReportResponse;
 import com.tetianamakar.reportgenerator.repository.ReportDetailsRepository;
-import java.util.List;
 import java.util.UUID;
 import org.springframework.stereotype.Service;
 
@@ -28,16 +25,10 @@ public class ReportDetailsService {
         ReportDetails reportDetails = new ReportDetails();
         reportDetails.setComments(request.getComments());
         Report report = reportService.getReportById(reportId);
-        reportDetails.setReportId(report.getId().toString());
-//        reportDetails.setFinancialData(new JsonObject("{\"key1\": \"value1\", \"key2\": 42}"));
+        reportDetails.setReportId(report.getId());
+        reportDetails.setFinancialData(request.getFinancialData());
         reportDetailsRepository.save(reportDetails);
     }
-
-    public List<ReportDetailsWithoutReportResponse> getReportsDetails() {
-        List<ReportDetails> reportDetails = reportDetailsRepository.findAll();
-        return EntityConverter.convertReportDetails(reportDetails);
-    }
-
 
     public ReportDetailsResponse getReportDetailsByReport(UUID reportId) {
         Report report = reportService.getReportById(reportId);
@@ -45,13 +36,26 @@ public class ReportDetailsService {
         ReportDetailsResponse response = new ReportDetailsResponse();
         response.setReportId(report.getId());
         response.setComments(reportDetails.getComments());
+        response.setFinancialData(reportDetails.getFinancialData());
         return response;
+    }
+
+
+    public void updateReportDetails(UUID reportId, ReportDetailsRequest request) {
+        ReportDetails reportDetails = getReportDetailsByReportId(reportId);
+        reportDetails.setFinancialData(request.getFinancialData());
+        reportDetails.setComments(request.getComments());
+        reportDetailsRepository.save(reportDetails);
+    }
+
+    public void deleteReportDetails(UUID reportId) {
+        ReportDetails reportDetails = getReportDetailsByReportId(reportId);
+        reportDetailsRepository.deleteById(reportDetails.getReportId());
     }
 
     private ReportDetails getReportDetailsByReportId(UUID reportId) {
         return reportDetailsRepository.findById(reportId)
             .orElseThrow(() -> new RuntimeException("ReportDetails with such id does not exist"));
     }
-
 
 }

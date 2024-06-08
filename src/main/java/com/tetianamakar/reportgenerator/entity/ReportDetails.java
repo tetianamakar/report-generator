@@ -1,9 +1,9 @@
 package com.tetianamakar.reportgenerator.entity;
 
 
+import java.util.UUID;
 import lombok.Getter;
 import lombok.Setter;
-import org.bson.json.JsonObject;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.data.mongodb.core.mapping.MongoId;
@@ -15,10 +15,10 @@ public class ReportDetails {
 
     @MongoId
     @Field("report_id")
-    private String reportId;
+    private UUID reportId;
 
     @Field("financial_data")
-    private JsonObject financialData;
+    private org.bson.Document financialData;
 
     @Field("comments")
     private String comments;
