@@ -30,7 +30,7 @@ public class Company {
     @Column(name = "address")
     private String address;
 
-    @Column(name = "created_at")
+    @Column(name = "created_at", nullable = false)
     @CreationTimestamp
     private Timestamp createdAt;
 

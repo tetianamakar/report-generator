@@ -30,7 +30,7 @@ public class Report {
     private BigDecimal netProfit;
 
     @ManyToOne
-    @JoinColumn(name = "company_id")
+    @JoinColumn(name = "company_id", nullable = false)
     private Company company;
 
 }
