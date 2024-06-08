@@ -1,4 +1,4 @@
-package com.tetianamakar.reportgenerator;
+package com.tetianamakar.reportgenerator.controller;
 
 import static org.mockito.Mockito.when;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
@@ -10,7 +10,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.tetianamakar.reportgenerator.controller.CompanyController;
 import com.tetianamakar.reportgenerator.payload.response.CompanyResponse;
 import com.tetianamakar.reportgenerator.security.jwt.AuthTokenFilter;
 import com.tetianamakar.reportgenerator.service.CompanyService;

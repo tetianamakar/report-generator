@@ -1,4 +1,4 @@
-package com.tetianamakar.reportgenerator;
+package com.tetianamakar.reportgenerator.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -12,8 +12,6 @@ import com.tetianamakar.reportgenerator.entity.ReportDetails;
 import com.tetianamakar.reportgenerator.payload.request.ReportDetailsRequest;
 import com.tetianamakar.reportgenerator.payload.response.ReportDetailsResponse;
 import com.tetianamakar.reportgenerator.repository.ReportDetailsRepository;
-import com.tetianamakar.reportgenerator.service.ReportDetailsService;
-import com.tetianamakar.reportgenerator.service.ReportService;
 import java.util.Optional;
 import java.util.UUID;
 import org.bson.Document;
