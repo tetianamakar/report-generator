@@ -8,7 +8,6 @@ services:
       - POSTGRES_DB=companies
       - POSTGRES_USER=tetiana
       - POSTGRES_PASSWORD=password
-
   mongodb:
     image: mongo
     ports:
@@ -17,8 +16,22 @@ services:
       - MONGO_INITDB_DATABASE=reports
       - MONGO_INITDB_USERNAME=tetiana
       - MONGO_INITDB_PASSWORD=password
-#    volumes:
-#      - mongo_data:/data/db
-#
-#volumes:
-#  mongo_data:
+
+  application:
+    build: .
+    image: report-generator
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/companies
+      - SPRING_DATASOURCE_USERNAME=tetiana
+      - SPRING_DATASOURCE_PASSWORD=password
+      - SPRING_DATA_MONGODB_URI=mongodb://mongodb:27017/reports
+      - SPRING_DATA_MONGODB_USERNAME=tetiana
+      - SPRING_DATA_MONGODB_PASSWORD=password
+      - SPRING_DATA_MONGODB_DATABASE=reports
+      - SPRING_DATA_MONGODB_HOST=mongodb
+      - SPRING_DATA_MONGODB_PORT=27017
+    depends_on:
+      - postgres
+      - mongodb
