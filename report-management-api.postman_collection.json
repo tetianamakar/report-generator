@@ -1,82 +1,29 @@
 {
 	"info": {
-		"_postman_id": "49d58984-19e4-4867-b143-3c1636bde89b",
-		"name": "report-management-api",
+		"_postman_id": "755ce908-0799-45af-90db-95309cbf0853",
+		"name": "report-generator-api",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "23442702"
 	},
 	"item": [
 		{
-			"name": "http://localhost:8080/users/age-over/30",
+			"name": "http://localhost:8080/companies/save",
 			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/users/age-over/30",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"users",
-						"age-over",
-						"30"
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJleGFtcGxlVXNlcm5hbWUiLCJpYXQiOjE3MTc3NzA4MDUsImV4cCI6MTcxNzg1NzIwNX0.UjT7kLFOhxjvT4YcjZuONkxu8iV4FtNQzCtZWIyaNb0pAluu_Zua-0SvhfRn7I-dXgIoJUiQOW-ymSkpkMxBxA",
+							"type": "string"
+						}
 					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost:8080/users/names/articles-over-3",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/users/names/articles-over-3",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"users",
-						"names",
-						"articles-over-3"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost:8080/articles/color/WHITE",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/articles/color/WHITE",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"articles",
-						"color",
-						"WHITE"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost:8080/users/save",
-			"request": {
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"lora\",\r\n    \"age\": 88\r\n}",
+					"raw": "{\r\n    \"name\": \"Nova Rava\",\r\n    \"registrationNumber\": \"654645674364\",\r\n    \"address\": \"Lviv\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -84,14 +31,14 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/users/save",
+					"raw": "http://localhost:8080/companies/save",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"users",
+						"companies",
 						"save"
 					]
 				}
@@ -99,13 +46,53 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost:8080/articles/save",
+			"name": "http://localhost:8080/companies/all",
 			"request": {
-				"method": "POST",
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJleGFtcGxlVXNlcm5hbWUiLCJpYXQiOjE3MTc3NDc4NjQsImV4cCI6MTcxNzgzNDI2NH0.edN7Bi-rEjiXnyqpncG8aO3TeQgt4I4trvnKZCC_CaM72AlyZaL7SvnTfo34GfZ4KWXtgqYy-7EmMey0pvNGRA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/companies/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"companies",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/companies/update",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJleGFtcGxlVXNlcm5hbWUiLCJpYXQiOjE3MTc2ODA3NDQsImV4cCI6MTcxNzc2NzE0NH0.xH7Y2ztv6zB-0J0AvoZifFOoG64i6vLh01HJGlPhr5gO1yWiuit0_KdJ5Q5f_9PbkNtK_RBjdz3iIXE-JWHpiQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"text\": \"aloha\",\r\n    \"color\": \"WHITE\",\r\n    \"userId\": 1\r\n}",
+					"raw": "{\r\n    \"name\": \"T-SHIRT\",\r\n    \"registrationNumber\": \"0000000000001\",\r\n    \"address\": \"Lviv\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -113,15 +100,348 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/articles/save",
+					"raw": "http://localhost:8080/companies/update/8c7caf5e-2d9e-429a-949e-5c5fbdc6f4a5",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"articles",
+						"companies",
+						"update",
+						"8c7caf5e-2d9e-429a-949e-5c5fbdc6f4a5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/companies/delete",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJleGFtcGxlVXNlcm5hbWUiLCJpYXQiOjE3MTc2ODA3NDQsImV4cCI6MTcxNzc2NzE0NH0.xH7Y2ztv6zB-0J0AvoZifFOoG64i6vLh01HJGlPhr5gO1yWiuit0_KdJ5Q5f_9PbkNtK_RBjdz3iIXE-JWHpiQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/companies/delete/fb8c9ee4-be68-48b5-a5b0-4c2ff848a2a7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"companies",
+						"delete",
+						"fb8c9ee4-be68-48b5-a5b0-4c2ff848a2a7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/reports/save",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJleGFtcGxlVXNlcm5hbWUiLCJpYXQiOjE3MTc3NzA4MDUsImV4cCI6MTcxNzg1NzIwNX0.UjT7kLFOhxjvT4YcjZuONkxu8iV4FtNQzCtZWIyaNb0pAluu_Zua-0SvhfRn7I-dXgIoJUiQOW-ymSkpkMxBxA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"reportDate\": \"2024-06-06 13:58:23.166000\",\r\n    \"totalRevenue\": \"888.54645674\",\r\n    \"netProfit\": \"88888.5453\",\r\n    \"companyId\": \"49e3e4c0-c73f-4af7-b7dd-d068823faefc\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/reports/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"reports",
 						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/reports/all/{companyId}",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJleGFtcGxlVXNlcm5hbWUiLCJpYXQiOjE3MTc4MzIyMDQsImV4cCI6MTcxNzkxODYwNH0.r_ES2Ed9K5wwVAW3cynvdQ8sEulIuhlrM08jivJ0VHp1VYtbLu2uEdcty2i6RbJQgDaDvZIsOjd5K0GcFiikVQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/reports/all/49e3e4c0-c73f-4af7-b7dd-d068823faefcf",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"reports",
+						"all",
+						"49e3e4c0-c73f-4af7-b7dd-d068823faefcf"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/reports/update/{reportId}",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJleGFtcGxlVXNlcm5hbWUiLCJpYXQiOjE3MTc4MzIyMDQsImV4cCI6MTcxNzkxODYwNH0.r_ES2Ed9K5wwVAW3cynvdQ8sEulIuhlrM08jivJ0VHp1VYtbLu2uEdcty2i6RbJQgDaDvZIsOjd5K0GcFiikVQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"reportDate\": \"4444-06-06 13:58:23.166000\",\r\n    \"totalRevenue\": \"9999999999999\",\r\n    \"netProfit\": \"99999999999999\",\r\n    \"companyId\": \"49e3e4c0-c73f-4af7-b7dd-d068823faefc\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/reports/update/6db58278-5428-45f2-af11-60df73c67a29",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"reports",
+						"update",
+						"6db58278-5428-45f2-af11-60df73c67a29"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/reports/delete/{reportId}",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJleGFtcGxlVXNlcm5hbWUiLCJpYXQiOjE3MTc2NzE0ODMsImV4cCI6MTcxNzc1Nzg4M30.wNlGGLfoHNyhhPip0C5p9rMVYRSHI3u4xK-SaKLtVvdlxSWecuLooyQ9OhNJZ-uxceDxRCJUM3FcRlDmSNbCww",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/reports/delete/8c7caf5e-2d9e-429a-949e-5c5fbdc6f4a4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"reports",
+						"delete",
+						"8c7caf5e-2d9e-429a-949e-5c5fbdc6f4a4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/report-details/save/{reportId}",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJleGFtcGxlVXNlcm5hbWUiLCJpYXQiOjE3MTc3NzA4MDUsImV4cCI6MTcxNzg1NzIwNX0.UjT7kLFOhxjvT4YcjZuONkxu8iV4FtNQzCtZWIyaNb0pAluu_Zua-0SvhfRn7I-dXgIoJUiQOW-ymSkpkMxBxA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"comments\": \"hello from postman\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/report-details/save/49e3e4c0-c73f-4af7-b7dd-d068823faefc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"report-details",
+						"save",
+						"49e3e4c0-c73f-4af7-b7dd-d068823faefc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/report-details/get/{reportId}",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJleGFtcGxlVXNlcm5hbWUiLCJpYXQiOjE3MTc3NzA4MDUsImV4cCI6MTcxNzg1NzIwNX0.UjT7kLFOhxjvT4YcjZuONkxu8iV4FtNQzCtZWIyaNb0pAluu_Zua-0SvhfRn7I-dXgIoJUiQOW-ymSkpkMxBxA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/report-details/get/602290e9-2bef-4d39-ae08-75d5799ac8cb",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"report-details",
+						"get",
+						"602290e9-2bef-4d39-ae08-75d5799ac8cb"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/report-details/update/{reportId}",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJleGFtcGxlVXNlcm5hbWUiLCJpYXQiOjE3MTc4MzIyMDQsImV4cCI6MTcxNzkxODYwNH0.r_ES2Ed9K5wwVAW3cynvdQ8sEulIuhlrM08jivJ0VHp1VYtbLu2uEdcty2i6RbJQgDaDvZIsOjd5K0GcFiikVQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"financialData\": {\r\n    \"revenue\": 100000,\r\n    \"expenses\": 50000,\r\n    \"profit\": 50000\r\n  },\r\n  \"comments\": \"updated comments\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/report-details/update/602290e9-2bef-4d39-ae08-75d5799ac8cb",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"report-details",
+						"update",
+						"602290e9-2bef-4d39-ae08-75d5799ac8cb"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/report-details/delete/{reportId}",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJleGFtcGxlVXNlcm5hbWUiLCJpYXQiOjE3MTc4MzIyMDQsImV4cCI6MTcxNzkxODYwNH0.r_ES2Ed9K5wwVAW3cynvdQ8sEulIuhlrM08jivJ0VHp1VYtbLu2uEdcty2i6RbJQgDaDvZIsOjd5K0GcFiikVQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/report-details/delete/6cbdf296-0c28-4b21-8086-7886008f53a8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"report-details",
+						"delete",
+						"6cbdf296-0c28-4b21-8086-7886008f53a8"
 					]
 				}
 			},
