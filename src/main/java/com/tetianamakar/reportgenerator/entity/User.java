@@ -26,9 +26,6 @@ public class User {
 
     private String password;
 
-//    @OneToMany(mappedBy = "user")
-//    private List<Article> articles = new ArrayList<>();
-
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "user_roles",
         joinColumns = @JoinColumn(name = "user_id"),
@@ -36,10 +33,6 @@ public class User {
     private Set<Role> roles = new HashSet<>();
 
     public User() {
-    }
-
-    public User(String name) {
-        this.name = name;
     }
 
     public User(String username, String password) {
